@@ -31,7 +31,11 @@ class Examples extends CI_Controller {
 
 	public function offices_management()
 	{
-		try{
+		$this->config->load('grocery_crud');
+    	$this->config->set_item('grocery_crud_dialog_forms',true);
+		$this->config->set_item('grocery_crud_default_per_page',10);
+        
+        try{
 			$crud = new grocery_CRUD();
 
 			$crud->set_theme('datatables');
@@ -51,7 +55,11 @@ class Examples extends CI_Controller {
 
 	public function employees_management()
 	{
-			$crud = new grocery_CRUD();
+			$this->config->load('grocery_crud');
+    	    $this->config->set_item('grocery_crud_dialog_forms',true);
+		    $this->config->set_item('grocery_crud_default_per_page',10);
+            
+            $crud = new grocery_CRUD();
 
 			$crud->set_theme('datatables');
 			$crud->set_table('employees');
@@ -70,7 +78,11 @@ class Examples extends CI_Controller {
 
 	public function customers_management()
 	{
-			$crud = new grocery_CRUD();
+			$this->config->load('grocery_crud');
+    	    $this->config->set_item('grocery_crud_dialog_forms',true);
+		    $this->config->set_item('grocery_crud_default_per_page',10);
+            
+            $crud = new grocery_CRUD();
 
 			$crud->set_table('customers');
 			$crud->columns('customerName','contactLastName','phone','city','country','salesRepEmployeeNumber','creditLimit');
@@ -87,7 +99,11 @@ class Examples extends CI_Controller {
 
 	public function orders_management()
 	{
-			$crud = new grocery_CRUD();
+			$this->config->load('grocery_crud');
+    	    $this->config->set_item('grocery_crud_dialog_forms',true);
+		    $this->config->set_item('grocery_crud_default_per_page',10);
+            
+            $crud = new grocery_CRUD();
 
 			$crud->set_relation('customerNumber','customers','{contactLastName} {contactFirstName}');
 			$crud->display_as('customerNumber','Customer');
@@ -103,7 +119,11 @@ class Examples extends CI_Controller {
 
 	public function products_management()
 	{
-			$crud = new grocery_CRUD();
+			$this->config->load('grocery_crud');
+    	    $this->config->set_item('grocery_crud_dialog_forms',true);
+		    $this->config->set_item('grocery_crud_default_per_page',10);
+            
+            $crud = new grocery_CRUD();
 
 			$crud->set_table('products');
 			$crud->set_subject('Product');
@@ -122,7 +142,11 @@ class Examples extends CI_Controller {
 
 	public function film_management()
 	{
-		$crud = new grocery_CRUD();
+		$this->config->load('grocery_crud');
+    	$this->config->set_item('grocery_crud_dialog_forms',true);
+		$this->config->set_item('grocery_crud_default_per_page',10);
+        
+        $crud = new grocery_CRUD();
 
 		$crud->set_table('film');
 		$crud->set_relation_n_n('actors', 'film_actor', 'actor', 'film_id', 'actor_id', 'fullname','priority');
@@ -138,7 +162,10 @@ class Examples extends CI_Controller {
 
 	public function film_management_twitter_bootstrap()
 	{
-		try{
+		$this->config->load('grocery_crud');
+    	$this->config->set_item('grocery_crud_dialog_forms',true);
+		$this->config->set_item('grocery_crud_default_per_page',10);
+        try{
 			$crud = new grocery_CRUD();
 
 			$crud->set_theme('twitter-bootstrap');
