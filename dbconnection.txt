@@ -1,0 +1,4 @@
+db server   : db3.papaki.gr
+db name     : r7807gpasp_gc14
+db username : r7807_gc14
+db password : 12345
