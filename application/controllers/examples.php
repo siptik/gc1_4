@@ -272,5 +272,45 @@ class Examples extends CI_Controller {
 			return $output;
 		}
 	}
+    
+    public function extension()
+    {
+        $crud = $this->my_basic_gc_config('offices','office');
+        $output = $crud->render();
+        $this->_example_output($output);
+        
+    }
+    
+    public function my_basic_gc_config($table_name, $content_public_name, $template='twitter-bootstrap'){
+        
+        $this->load->library('extension_grocery_CRUD');
+        $crud = new Extension_grocery_CRUD();
+        
+        $this->config->load('grocery_crud');
+        $this->config->set_item('grocery_crud_dialog_forms',true);
+    	$this->config->set_item('grocery_crud_default_per_page',10);
+        
+        $crud->set_theme($template);
+
+	    $crud->set_table($table_name)
+        	->set_subject($content_public_name);
+
+		$crud->set_soft_delete();
+
+		/*$this->columns('name','created','public');
+
+		$this->field_type_ext('public','yes_no');
+
+
+		$this->required_fields('name');
+
+		$this->fields(
+			'name',
+			'public'
+		);*/
+        
+        return $crud;
+
+    }
 
 }
